@@ -171,6 +171,9 @@ if(CASS_BUILD_STATIC)
     $<TARGET_OBJECTS:http-parser_static>
     $<TARGET_OBJECTS:minizip_static>)
   target_link_libraries(cassandra_static ${CASS_LIBS})
+  if (HAVE_ARC4RANDOM)
+    target_link_libraries(cassandra_static bsd)
+  endif()
   target_include_directories(cassandra_static PRIVATE ${INCLUDE_DIRS} ${CASS_INCLUDES} ${ZLIB_INCLUDE_DIRS})
 
   set_target_properties(cassandra_static PROPERTIES OUTPUT_NAME cassandra_static)
