@@ -40,6 +40,9 @@
 #include <sys/uio.h>
 #include <unistd.h>
 #endif
+#if defined(HAVE_ARC4RANDOM)
+#include <bsd/stdlib.h>
+#endif
 
 namespace datastax { namespace internal {
 
