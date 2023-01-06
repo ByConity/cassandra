@@ -14,6 +14,11 @@
   limitations under the License.
 */
 
+/*
+ * This file may have been modified by ByteDance Ltd. (“ Bytedance's Modifications”).
+ * All Bytedance's Modifications are Copyright (2023) ByteDance Ltd..
+ */
+
 #include "random.hpp"
 
 #include "cassandra.h"
