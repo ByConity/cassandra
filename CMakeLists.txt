@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(cassandra C CXX)
 
-#set(CASS_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(CASS_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(CASS_SRC_DIR "${CASS_ROOT_DIR}/src")
 set(CASS_INCLUDE_DIR "${CASS_ROOT_DIR}/include")
 
@@ -174,13 +174,13 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
   endif()
 
-  if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") 
+  if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     # Clang/Intel specific compiler options
     # I disabled long-long warning because boost generates about 50 such warnings
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra -Wno-long-long -Wno-unused-parameter")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-variadic-macros -Wno-zero-length-array")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-local-typedef -Wno-unknown-warning-option")
-  else() 
+  else()
     # GCC specific compiler options
     # I disabled long-long warning because boost generates about 50 such warnings
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra -Wno-long-long -Wno-unused-parameter -Wno-variadic-macros")

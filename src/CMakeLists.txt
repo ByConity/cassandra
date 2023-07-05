@@ -42,7 +42,7 @@ add_subdirectory(third_party/http-parser)
 add_subdirectory(third_party/minizip)
 add_subdirectory(third_party/sparsehash)
 
-list(APPEND INCLUDE_DIRS 
+list(APPEND INCLUDE_DIRS
   third_party/curl
   third_party/hdr_histogram
   third_party/http-parser
@@ -117,9 +117,11 @@ set(HAVE_OPENSSL ${CASS_USE_OPENSSL})
 set(HAVE_ZLIB ${CASS_USE_ZLIB})
 
 # Generate the driver_config.hpp file
+message("CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
+message("CASS_ROOT_DIR: ${CASS_ROOT_DIR}")
 configure_file(
-  ${CASS_ROOT_DIR}/driver_config.hpp.in 
-  ${CMAKE_CURRENT_SOURCE_DIR}/driver_config.hpp)
+  ${CASS_ROOT_DIR}/driver_config.hpp.in
+  ${CMAKE_CURRENT_BINARY_DIR}/driver_config.hpp)
 
 
 #------------------------------
@@ -127,7 +129,7 @@ configure_file(
 #------------------------------
 
 if(CASS_BUILD_SHARED)
-  add_library(cassandra SHARED 
+  add_library(cassandra SHARED
     ${SOURCES}
     $<TARGET_OBJECTS:curl_hostcheck>
     $<TARGET_OBJECTS:hdr_histogram>
