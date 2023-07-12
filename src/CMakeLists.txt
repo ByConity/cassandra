@@ -1,6 +1,7 @@
 include(CheckSymbolExists)
 include(CheckCXXSourceCompiles)
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 file(GLOB SOURCES *.cpp *.hpp)
 
 if(APPLE)
